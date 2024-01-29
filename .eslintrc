@@ -24,6 +24,7 @@
     "prettier/prettier": "off",
     "linebreak-style": [0, "unix"],
     "quotes": ["error", "single"],
+    // "no-console": ["warning"],
     "semi": ["off"],
     "react/react-in-jsx-scope": "off",
     "react/prop-types": 0,

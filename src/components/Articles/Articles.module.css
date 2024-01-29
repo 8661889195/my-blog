@@ -1,0 +1,9 @@
+.blockBlock {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* .ant-pagination-options {
+  display: none;
+} */

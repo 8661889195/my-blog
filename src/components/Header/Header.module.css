@@ -1,0 +1,21 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1440px;
+  height: 80px;
+  flex-shrink: 0;
+  background: var(--background-color-base, #FFF);
+  align-items: center;
+}
+
+.title {
+  color: var(--heading-color, rgba(0, 0, 0, 0.85));
+/* H6 - Header 6 */
+font-family: "Inter UI";
+font-size: 18px;
+font-style: normal;
+font-weight: 400;
+line-height: 28px; /* 155.556% */
+margin-left: 22px;
+}
+
