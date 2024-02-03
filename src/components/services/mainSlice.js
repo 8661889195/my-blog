@@ -6,6 +6,25 @@ const getArticles = createAsyncThunk('main/getArticles', async (offsetStep, { ge
   return response.json();
 });
 
+export const createUser = () => {
+   fetch('https://blog.kata.academy/api/users', {
+    method: 'POST',
+    headers: {
+      accept: 'application/json',
+      'Content-Type': 'application/json:charset=utf-8',
+    },
+    body: JSON.stringify({
+      user: {
+        username: 'qwery123588',
+        email: 'myEmailqwery88@mail.ru',
+        password: '1234569qwe88',
+      },
+    }),
+  }).then((response) => {
+    console.log(response, '12345');
+  });
+};
+
 const initialState = {
   articlesFromServer: [],
   URL: 'https://blog.kata.academy',
@@ -20,7 +39,7 @@ const mainSlice = createSlice({
   reducers: {
     setPage(state, action) {
       state.currentPage = action.payload;
-    }
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(getArticles.fulfilled, (state, action) => {

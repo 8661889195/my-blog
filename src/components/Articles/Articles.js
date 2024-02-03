@@ -9,12 +9,6 @@ export const Articles = () => {
   const dispatch = useDispatch();
   const { currentPage, totalPages } = useSelector((state) => state.main)
 
-  // const getItemPerPage = () => {
-  //   return {
-  //     items_per_page: ''
-  //   }
-  // }
-
   useEffect(() => {
     const first = window.localStorage.getItem('page')
     dispatch(setPage(first))
@@ -39,7 +33,6 @@ export const Articles = () => {
       total={totalPages}
       defaultPageSize={5}
       current={currentPage}
-      // locale={getItemPerPage}
       />
     </div>
   );

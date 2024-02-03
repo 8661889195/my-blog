@@ -6,7 +6,7 @@ export const Header = () => {
     <div className={classes.header}>
       <p className={classes.title}>Realworld Blog</p>
       <div>
-      <SignButton label='Sign In'/>
+      <SignButton va label='Sign In'/>
       <SignButton label='Sign Up' variant='green'/>
       </div>
     </div>
