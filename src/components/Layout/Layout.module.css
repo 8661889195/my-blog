@@ -1,4 +1,6 @@
 .mainContent {
+  max-width: 1440px;
+  height: 977px;
   background-color: #EBEEF3;
   padding-top: 25px;
 }
