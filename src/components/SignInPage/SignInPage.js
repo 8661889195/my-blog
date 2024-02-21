@@ -1,16 +1,29 @@
 import { useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
+import { useNavigate, Link } from 'react-router-dom';
 import { NewAccountForm } from '../NewAccountForm/NewAccountForm';
+import { entranceUser } from '../services/mainSlice';
 import classes from './SignInPage.module.css';
 
 export const SignInPage = () => {
+
+  const dispatch = useDispatch();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm({ mode: 'onTouched' });
 
+  let historyObj = useNavigate();
+  function handleClick(data) {
+    localStorage.setItem('token', data.payload.user.token)
+    historyObj('/articles')
+  }
+
   const onSubmit = (data) => {
-    console.log(data);
+    dispatch(entranceUser(data))
+    .then((response) => handleClick(response))
   };
 
   return (
@@ -40,9 +53,9 @@ export const SignInPage = () => {
           </div>
         </div>
         <div className={classes.login}>
-          <button className={classes.buttonLogin}>Login</button>
+          <button className={classes.buttonLogin} onClick={handleSubmit(onSubmit)}>Login</button>
           <span className={classes.already}>
-          Don’t have an account?<a className={classes.link}>Sign Up.</a>
+          Don’t have an account?<Link to="/account" className={classes.link}>Sign Up.</Link>
           </span>
         </div>
       </form>

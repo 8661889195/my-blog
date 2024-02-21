@@ -1,0 +1,53 @@
+.userAbility {
+  display: flex;
+  align-items: center;
+}
+
+.logOut {
+  margin-right: 22px;
+  height: 38px;
+  color: #000000;
+  font-family: "Inter UI";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px; /* 155.556% */
+  border-radius: 5px;
+  border: 1px solid var(--success-color, #000000);
+}
+
+.link {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 25px;
+  text-decoration: none;
+}
+
+.create {
+  display: flex;
+  align-items: center;
+  height: 31px;
+  margin-top: 3px;
+  margin-right: 22px;
+  color: var(--success-color, #52C41A);
+  font-family: "Inter UI";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px; /* 155.556% */
+  border-radius: 5px;
+  border: 1px solid var(--success-color, #52C41A);
+  text-decoration: none;
+}
+
+.infoAbout {
+  display: flex;
+  /* min-width: 215px; */
+  align-items: center;
+  justify-content: space-between;
+}
+
+.username {
+  margin-right: 10px;
+}

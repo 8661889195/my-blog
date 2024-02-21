@@ -1,8 +1,10 @@
 import { format } from 'date-fns';
+import { useNavigate } from 'react-router-dom';
 import classes from './ArticleCard.module.css';
 
-export const ArticleCard = ({ title, body, tagList, author, createdAt, favoritesCount }) => {
-  const createdDate = createdAt === '' ? '' : format(new Date(createdAt), 'MMMM d, yyyy');
+export const ArticleCard = ({ title, body, tagList, author, createdAt, favoritesCount, slug }) => {
+
+  const createdDate = createdAt ? format(new Date(createdAt), 'MMMM d, yyyy') : '' ;
 
   function truncate(numberSymbols, useWordBoundary) {
     if (useWordBoundary?.length <= numberSymbols) {
@@ -10,6 +12,11 @@ export const ArticleCard = ({ title, body, tagList, author, createdAt, favorites
     }
     const subString = useWordBoundary?.substring(0, numberSymbols - 1);
     return `${useWordBoundary ? subString.substring(0, subString.lastIndexOf(' ')) : subString}...`;
+  }
+
+  let historyObj = useNavigate();
+  const handleArticle = () => {
+    historyObj(`/articles/${slug}`)
   }
 
   const tagArray = (tagList) => {
@@ -23,7 +30,7 @@ export const ArticleCard = ({ title, body, tagList, author, createdAt, favorites
     <div className={classes.ArticleCard}>
       <div className={classes.left}>
         <div className={classes.twoValue}>
-          <div className={classes.nameArticle}>{truncate(20, title)}</div>
+          <div className={classes.nameArticle} onClick={() => handleArticle()}>{truncate(20, title)}</div>
           <div className={classes.countLikes}>
             <div>
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -47,7 +54,7 @@ export const ArticleCard = ({ title, body, tagList, author, createdAt, favorites
         <div className={classes.tagList}>
           {shortTagList.map((tag) => (
             <div className={classes.tags} key={tag}>
-              {tag}
+              {truncate(30, tag)}
             </div>
           ))}
         </div>

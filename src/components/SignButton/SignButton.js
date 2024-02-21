@@ -1,7 +1,21 @@
+import { useNavigate } from 'react-router-dom';
 import classes from './SignButton.module.css';
 
-export const SignButton = ({ variant, label }) => {
+export const SignButton = ({ label, redirect }) => {
+
+   let redirectPage = useNavigate();
+
+  function handleRedirect() {
+    redirectPage(redirect ? '/account' : '/signIn')
+  }
+
   return(
-    <button type="button" className={variant === 'green' ? classes.green : classes.simple}>{label}</button>
+    <button 
+    type="button" 
+    className={redirect ? classes.signUp : classes.signIn}
+    onClick={() => handleRedirect()}
+    >
+    {label}
+    </button>
   )
 }

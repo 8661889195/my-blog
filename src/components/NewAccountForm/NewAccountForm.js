@@ -2,9 +2,8 @@ import { FaEyeSlash, FaEye } from 'react-icons/fa';
 import { useState } from 'react';
 import classes from './NewAccountForm.module.css';
 
-export const NewAccountForm = ({name, placeholder, validation, errors, textError, isEyeIcon }) => {
-  
-  // const [passwordEye, setPasswordEye ] = useState(false);
+export const NewAccountForm = ({name, placeholder, validation, errors, textError, isEyeIcon, value }) => {
+
   const [isIcon, setPasswordEye ] = useState(isEyeIcon);
   
     const handlePasswordClick = () => {
@@ -20,6 +19,7 @@ export const NewAccountForm = ({name, placeholder, validation, errors, textError
           <input
           {...validation}
             type={ (isIcon) ? 'password' : 'text'}
+            defaultValue={value}
             placeholder={placeholder}
             className={`${classes.input} ${errors && classes.class}`}
           />
